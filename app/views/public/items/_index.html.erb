@@ -1,0 +1,18 @@
+<h2>商品一覧</h2><p>（全<%= items.count %>件）</p>
+
+
+  <% items.each do |item| %>
+    <div class = >
+      <div class = "item_image">
+        <%= image_tag item.get_item_image %>
+        <%# サイズ指定 を追加 %>
+      </div>
+      <div class = "item_name">
+        <p><%= item.name %></p>
+      </div>
+      <div class = "item_price">
+        <p>￥<%= item.price_with_tax %></p>
+      </div>
+    </div>
+  <% end %>
+
