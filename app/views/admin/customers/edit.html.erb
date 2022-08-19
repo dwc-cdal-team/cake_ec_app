@@ -1,2 +1,88 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2><%= @custemer_name %>さんの会員情報編集</h2>
+      <table class="table">
+        <tr>
+          <th>
+            会員ID
+          </th>
+          <th>
+            <%= @customer.id %>
+          </th>
+        </tr>
+        <%= form_with model: @customer, url: admin_customer_path(@customer.id), local: true, method: :patch do |form| %>
+        <tr>
+          <th>
+            氏名
+          </th>
+          <th>
+            <%= form.text_field :last_name %>
+            <%= form.text_field :first_name %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            フリガナ
+          </th>
+          <th>
+            <%= form.text_field :last_name_kana %>
+            <%= form.text_field :first_name_kana %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            郵便番号
+          </th>
+          <th>
+            <%= form.text_field :postal_code %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            住所
+          </th>
+          <th>
+            <%= form.text_field :address %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            電話番号
+          </th>
+          <th>
+            <%= form.text_field :telephone_number %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            メールアドレス
+          </th>
+          <th>
+            <%= form.text_field :email %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            会員ステータス
+          </th>
+          <th>
+            <%= form.radio_button :is_deleted, :false %>有効
+            <%= form.radio_button :is_deleted, :true %>退会
+          </th>
+        </tr>
+        <tr>
+          <th>
+
+          </th>
+          <th>
+            <%= form.submit "変更を保存", class: "btn btn-success" %>
+          </th>
+        </tr>
+        <% end %>
+      </table>
+
+    </div>
+  </div>
+</div>
+
