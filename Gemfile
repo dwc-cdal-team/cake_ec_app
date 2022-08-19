@@ -60,4 +60,3 @@ gem 'net-pop'
 gem "enum_help"
 gem 'kaminari','~> 1.2.1'
 gem 'devise'
-# gem 'devise-i18n'
