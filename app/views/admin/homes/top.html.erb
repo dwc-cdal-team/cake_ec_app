@@ -1,2 +1,12 @@
 <h1>Admin::Homes#top</h1>
 <p>Find me in app/views/admin/homes/top.html.erb</p>
+
+<!-- 暫定処理 -->
+
+<% if admin_signed_in? %>
+  ログイン管理者：<%= current_admin.last_name %>
+<% end %>
+
+<%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %>
+
+<!-- ここまで -->
