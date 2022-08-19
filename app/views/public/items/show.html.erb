@@ -7,7 +7,8 @@
     <div class='col-8 offset-1'>
       <div class='d-flex flex-row mr-3'>
         <div class="item_image">
-          <%= image_tag 'no_image.jpg' %>
+          <%= image_tag 'no_image', size: "360x270" %>
+          <img src="app/assets/images/no_image.jpg">
         </div>
         <div class="item_text">
           <div class="item_name">
@@ -19,7 +20,7 @@
           <div class="item_price">
             <h4><%= @item.price_with_tax %>(税込)</h4>
           </div>
-          <div class="amount_select">
+          <div class="order_btn">
             <%= form_with model: @cart do |f| %>
               <%= f.select :amount, [["1", "1.to_i"], ["2", "2.to_i"], ["3", "3.to_i"], ["4", "4.to_i"],
               ["5", "5.to_i"], ["6", "6.to_i"], ["7", "7.to_i"], ["8", "8.to_i"], ["9", "9.to_i"],
