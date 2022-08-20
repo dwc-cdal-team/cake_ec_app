@@ -1,5 +1,4 @@
-
-  <p><span>商品一覧</span>（全<%= @all_items.count %>件）</p>
+  <p><strong>商品一覧</strong>（全<%= @all_items.count %>件）</p>
   <div class="card-group">
     <% items.each do |item| %>
       <%= link_to item_path(item) do%>
@@ -8,7 +7,7 @@
             <img src="/assets/no_image.jpg" class="card-img-top">
           </div>
               <div class="card-body">
-                <p class="card-title"><span><%= item.name %></span></p>
+                <p class="card-title"><strong><%= item.name %></strong></p>
                 <p class="card-text"><strong>￥<%= item.price_with_tax.to_s(:delimited) %></strong></p>
               </div>
             </div>
