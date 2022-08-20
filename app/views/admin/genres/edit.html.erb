@@ -1,2 +1,13 @@
-<h1>Admin::Genres#edit</h1>
-<p>Find me in app/views/admin/genres/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class=”col-md-8”>
+      <h2>ジャンル編集加</h2>
+      <%= render 'layouts/errors', obj: @genre %>
+      <%= form_with model: @genre, url: admin_genre_path, local: true, method: :patch do |form| %>
+        <%= form.label :name, "ジャンル名" %>
+        <%= form.text_field :name %>
+        <%= form.submit "変更を保存", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
