@@ -4,21 +4,39 @@
       <%= render 'layouts/sidebar' %>
     </div>
 
-    <div class="col-8">
-      <P>
-        ようこそ、ながのCAKEへ！<br>
-        このサイトは、ケーキ販売のECサイトになります。<br>
-        会員でない方も商品の閲覧はできますが、<br>
-        購入には会員登録が必要になります。
-      </P>
+    <div class="col-lg-8">
+      <div class="row-8">
+        <div style="background: url(/assets/top_mv.jpg); background-position: top left; background-size: cover;">
+          <P class="text-success font-weight-bold">
+            <br>
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。<br>
+            <br>
+          </P>
+        </div>
+      </div>
 
-      <h2>新着商品</h2>
-
-
-
+      <div class="row">
+        <h2>新着商品</h2>
+      </div>
+      <div class="d-flex flex-wrap">
+        <% @items.each do |item| %>
+          <div class="col-3 p-1 flex-fill">
+            <%= link_to item_path(item) do %>
+               <%= image_tag item.get_image(160, 120) %>
+               <p><%= item.name %></p>
+               <p>￥<%= item.price_with_tax.to_s(:delimited) %></p>
+               <% unless item.is_stopped == false %>
+                 <p class="font-weight-bold text-danger">Sold Out</p>
+               <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
       <p class="text-right">
         <%= link_to "全ての商品を見る>", items_path, method: :get %>
       </p>
     </div>
   </div>
-</div>
