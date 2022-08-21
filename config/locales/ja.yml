@@ -11,5 +11,5 @@ ja:
       making_status:
         unable: "着手不可"
         waiting: "制作待ち"
-        maiking: "制作中"
-        finish: "制作完了"
+        making: "制作中"
+        finish: "制作完了"git
