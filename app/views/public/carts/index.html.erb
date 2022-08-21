@@ -14,23 +14,19 @@
       <tr id="cart_<%= cart.id %>">
         <td class="item_name d-flex">
           <div><%= image_tag 'no_image', size: "80x60" %></div>
-          <div><%= cart.item_id.name %></div>
+          <div><%= @item.name) %></div>
         </td>
-        <td>￥<%= cart.item_id.price_with_tax.to_s(:delimited) %></td>
+        <td>￥<%= @item.price_with_tax.to_s(:delimited) %></td>
         <td class="item_amount d-flex">
-          <%= form_with model: @cart, url: admin_customer_path(.id), local: true, method: :patch do |form| %>
-          
+          <%#<%= form_with model: @cart, url: admin_customer_path(.id), local: true, method: :patch do |form| %>
+          <%= cart.amount %>
         </td>
         <td></td>
         <td></td>
-        <td class="favorite-btn">
-          <%= render "favorites/btn", book: book %>
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-  <%= cart.item_id.name %>
-  
-<% end %>
+
+

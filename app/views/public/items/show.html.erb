@@ -20,7 +20,11 @@
             <h4>￥<%= @item.price_with_tax.to_s(:delimited) %>(税込)</h4>
           </div>
           <div class="form-group mb-2">
-            <% if @item.is_stopped == false %>
+            <% if !customer_signed_in? %>
+            <p class="font-weight-bold text-danger">ご購入にはログインが必要です。</p>
+            <p>会員登録がお済みの方は<%= link_to "こちら", new_customer_session_path %></p>
+            <p>はじめてのご利用の方は<%= link_to "こちら", new_customer_registration_path %></p>
+            <% elsif @item.is_stopped == false %>
               <%= form_with model: @cart, url: carts_path, method: :post do |f| %>
                 <%= f.hidden_field :item_id, :value => @item.id %>
                 <%= f.select(:amount, *[1..10],{ :include_blank => '個数選択' }, :required => true, class: "form-group mx-sm-3 mb-2") %>
@@ -35,4 +39,3 @@
     </div>
   </div>
 </div>
-
