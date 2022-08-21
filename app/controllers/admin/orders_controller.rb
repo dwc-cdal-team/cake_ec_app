@@ -8,8 +8,6 @@ class Admin::OrdersController < ApplicationController
     end
 
     @destination_address = "〒" + @order.postal_code.to_s.insert(3, "-") + " " + @order.address
-#    @order_new = Order.new
-#    @order_item_new = OrderItem.new
   end
 
   def update
