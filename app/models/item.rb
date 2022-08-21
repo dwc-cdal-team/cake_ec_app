@@ -6,20 +6,18 @@ class Item < ApplicationRecord
 
     has_one_attached :image
 
-    
-    
-    
-    
-    
-    
-    
-    
     validates :genre_id, presence: true
     validates :name, presence: true
     validates :introduction, presence: true
     validates :price_without_tax, presence: true
     validates :is_stopped, inclusion: {in: [true, false]}
     validates :image, presence: true
+    
+    def price_with_tax
+      tax = 1 + 0.10
+      ( self.price_without_tax * tax).floor
+    end
+
 
     # def get_image(width, height)
     #   unless image.attached?
@@ -28,5 +26,6 @@ class Item < ApplicationRecord
     #   end
     #     image.variant(resize_to_limit: [width, height]).processed
     # end
+
 
 end
