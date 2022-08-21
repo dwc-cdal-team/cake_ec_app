@@ -1,11 +1,11 @@
 class Public::CartsController < ApplicationController
 
   before_action :ensure_customer
-  before_action :setup_cart, only: [:update, :destroy, :destroy_all]
+  before_action :setup_cart, except: :create
 
   def index
+
     @carts = current_customer.carts.all
-    item = Item.findby(params[:id])
 
   end
 
@@ -56,12 +56,10 @@ class Public::CartsController < ApplicationController
 
   def ensure_customer
     redirect_to new_customer_session_path unless customer_signed_in?
-    flash[:notice] = "ご購入にはログインが必要です"
   end
 
   def setup_cart
-    cart.customer_id = current_customer.id
-    @cart = Cart.find_by(params[:customer_id])
+    @cart = Cart.find_by(params[:item_id])
   end
 
 end
