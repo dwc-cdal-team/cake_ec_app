@@ -13,7 +13,6 @@ class Public::CustomersController < ApplicationController
       redirect_to my_page_path
       flash[:notice] = "編集した内容を保存しました。"
     else
-      @customer = Customer.find(current_customer.id)
       render :edit
     end
   end
