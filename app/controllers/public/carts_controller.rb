@@ -4,7 +4,7 @@ class Public::CartsController < ApplicationController
   #before_action :setup_cart, only: [:update, :destroy, :destroy_all, :create]
 
   def index
-    @carts = current_customer.carts.all
+    @carts = current_customer.cart.all
 
   end
 
@@ -45,16 +45,16 @@ class Public::CartsController < ApplicationController
   private
 
   def cart_params
-    params.require(:cart).permit(:customer_id, :item_id, :amount)
+    params.require(:cart).permit(:item_id, :amount)
   end
 
   def ensure_customer
     redirect_to new_customer_session_path unless customer_signed_in?
   end
 
-# 　def setup_cart
-#     cart.customer_id = current_customer.id
-#     @cart = Cart.find_by(params[:customer_id])
-# 　end
+　def setup_cart
+    cart.customer_id = current_customer.id
+    @cart = Cart.find_by(params[:customer_id])
+　end
 
 end
