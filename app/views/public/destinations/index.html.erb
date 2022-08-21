@@ -1,2 +1,25 @@
-<h1>Public::Destinations#index</h1>
-<p>Find me in app/views/public/destinations/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h3>配送先登録/一覧</h3>
+      <%= form_with model: @destination, url: destinations_path , method: :post do |f| %>
+      <table class="table">
+        <tr>
+          <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+          <td><%= f.text_field :postal_code, autofocus: true %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :address, "住所" %></td>
+          <td><%= f.text_field :address, autofocus: true %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :name, "宛名" %></td>
+          <td><%= f.text_field :name, autofocus: true %></td>
+          <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+        </tr>
+      </table>
+      <% end %>
+      
+    </div>
+  </div>
+</div>
