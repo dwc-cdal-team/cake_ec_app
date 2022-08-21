@@ -1,2 +1,51 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <%= render 'layouts/errors', obj: @item %>
+
+      <h2>商品編集</h2>
+
+      <%= form_with model: @item, url: admin_item_path(@item), method: :patch, local: true do |f| %>
+        <div class="field">
+          <%= f.label :image, "商品画像" %><br>
+          <%= f.file_field :image, accept: 'image/*', class: "form-control-file" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :name, "商品名" %><br>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :introduction, "商品説明" %><br>
+          <%= f.text_area :introduction, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :genre_id, "ジャンル" %><br>
+          <%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "選択して下さい", class: "form-select" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :price_without_tax, "税抜価格" %><br>
+          <%= f.number_field :price_without_tax %>円
+        </div>
+
+        <div class="field">
+          <p>販売ステータス</p>
+          <div class="is_stopped">
+            <%= f.radio_button :is_stopped, false %>
+            <%= f.label :is_stopped, "販売中", value: false %>
+
+            <%= f.radio_button :is_stopped, true, class: "ml-4"%>
+            <%= f.label :is_stopped, "販売停止中", value: true %>
+          </div>
+        </div>
+
+        <div class="actions text-center">
+          <%= f.submit "変更を保存", class: 'btn btn-sm btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
