@@ -6,4 +6,9 @@ class Item < ApplicationRecord
     
     has_one_attached :image
     
+
+    def price_with_tax
+      tax = 1 + 0.10
+      ( self.price_without_tax * tax).floor
+    end
 end
