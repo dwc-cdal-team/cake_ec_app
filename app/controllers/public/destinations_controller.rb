@@ -1,6 +1,6 @@
 class Public::DestinationsController < ApplicationController
   def index
-    @destination = Destination.new
+    @destination_new = Destination.new
     @destinations = Destination.where(customer_id: current_customer.id)
   end
 
