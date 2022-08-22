@@ -2,10 +2,10 @@
   <div class="card-deck mb-5">
     <div class="row">
       <% items.each do |item| %>
-        <div class="col-md-3 mb-3">
+        <div class="col-lg-3 mb-3">
           <div class="card h-100 mt-2 mb-2 shadow-sm">
             <%= link_to item_path(item) do%>
-              <img src="/assets/no_image.jpg" class="card-img-top">
+              <%= image_tag item.get_image(240,180), class: "card-img-top" %>
               <div class="card-body">
                 <h5 class="card-title mb-2"><%= item.name %></h5>
                 <p class="card-text font-weight-bold mb-2">￥<%= item.price_with_tax.to_s(:delimited) %></p>

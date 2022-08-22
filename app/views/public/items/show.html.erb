@@ -7,7 +7,7 @@
       <%= render 'layouts/errors', obj: @cart %>
       <div class='d-flex flex-row'>
         <div class="item_image mr-2">
-          <%= image_tag 'no_image', size: "360x270" %>
+          <%= image_tag @item.get_image(360,270) %>
         </div>
         <div class="item_text">
           <div class="item_name mb-3">

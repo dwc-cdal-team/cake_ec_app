@@ -4,14 +4,15 @@ class Item < ApplicationRecord
     has_many :order_items
     has_many :carts
 
-
     has_one_attached :image
 
-    validates :customer_id, presence: true
-    validates :item_id, presence: true
-    validates :amount, presence: true
-    
-    
+    validates :genre_id, presence: true
+    validates :name, presence: true
+    validates :introduction, presence: true
+    validates :price_without_tax, presence: true
+    validates :is_stopped, inclusion: {in: [true, false]}
+    validates :image, presence: true
+
     def price_with_tax
       tax = 1 + 0.10
       ( self.price_without_tax * tax).floor
