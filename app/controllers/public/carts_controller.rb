@@ -5,7 +5,6 @@ class Public::CartsController < ApplicationController
   def index
     @carts = current_customer.carts.all
     @total = @carts.inject(0) { |sum, cart| sum + cart.subtotal }
-    #@cart = Cart.find(params[:id])
   end
 
   def update
