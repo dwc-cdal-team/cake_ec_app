@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>宛名</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% destinations.each do |f| %>
+    <tr>
+      <td><%= f.postal_code %></td>
+      <td><%= f.address %></td>
+      <td><%= f.name %></td>
+      <td>
+        <%= link_to "編集する", edit_destination_path(f.id), class: "btn btn-success" %>
+        <%= link_to "削除する", destination_path(f.id), class: "btn btn-danger",method: :delete, data: { confirm: "本当に削除しますか？" } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

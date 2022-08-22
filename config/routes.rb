@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     get '/customers/my_page', to: 'customers#show', as: 'my_page'
     get 'customers/confirm'
     patch 'customers/deactivate'
+    delete 'carts/destroy_all', to: 'carts#destroy_all', as: 'carts_destroy_all'
     resources :carts, except: [:show,:new,:edit]
-    delete 'carts/destroy_all'
     resources :orders, except: [:edit,:update,:destroy]
     post 'orders/confirm'
     get 'orders/complete'
