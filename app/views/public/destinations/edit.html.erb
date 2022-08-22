@@ -1,2 +1,25 @@
-<h1>Public::Destinations#edit</h1>
-<p>Find me in app/views/public/destinations/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h3>配送先編集</h3>
+      <%= render 'layouts/errors', obj: @destination %>
+      <%= form_with model: @destination, url: destination_path(@destination.id), local: true, method: :patch do |f| %>
+      <table class="table">
+        <tr>
+          <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+          <td><%= f.text_field :postal_code %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :address, "住所" %></td>
+          <td><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :name, "宛名" %></td>
+          <td><%= f.text_field :name %></td>
+          <td><%= f.submit "変更内容を保存", class: "btn btn-success" %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
