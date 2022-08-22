@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12 mx-auto">
       <h2>注文履歴一覧</h2>
-      
+
       <table class="table">
         <thead>
           <tr>
@@ -14,26 +14,32 @@
             <th>注文詳細</th>
           </tr>
         </thead>
+
         <tbody>
-          <% @orders.each do |oder| %>
+          <% @orders.each do |order| %>
           <tr>
             <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
             <td>
               〒<%= order.postal_code.insert(3, "-") %><br>
-              <%= order.address %>
+              <%= order.address %><br>
+              <%= order.name %>
             </td>
             <td>
               <% order.items.each do |item| %>
-              <%= item.name %>
+              <%= item.name %><br>
               <% end %>
             </td>
             <td><%= order.total_payment.to_s(:delimited) %>円</td>
-            <td><%= order.order_status %></td>
-            <td><%= link_to "", </td>
+            <td><%= order.order_status_i18n %></td>
+            <td><%= link_to "表示する", order_path(order), class: "btn btn-sm btn-primary" %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
+
+      <div>
+        <p><%= paginate @orders %></p>
+      </div>
     </div>
   </div>
 </div>

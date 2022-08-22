@@ -12,6 +12,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = Kaminari.paginate_array(current_customer.orders.reverse).page(params[:page]).per(10)
   end
 
   def show
