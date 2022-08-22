@@ -9,9 +9,9 @@ class Public::DestinationsController < ApplicationController
   end
 
   def create
-    @destination = Destination.new(destination_params)
-    @destination.customer_id = current_customer.id
-    if @destination.save
+    @destination_new = Destination.new(destination_params)
+    @destination_new.customer_id = current_customer.id
+    if @destination_new.save
       redirect_to destinations_path
     else
       @destinations = Destination.where(customer_id: current_customer.id)
