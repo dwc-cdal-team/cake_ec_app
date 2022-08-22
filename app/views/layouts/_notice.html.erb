@@ -1,5 +1,14 @@
 <% if flash[:notice] %>
-  <p id="notice">
-    <%= flash[:notice] %>
-  </p>
+  <div class="w-auto bg-success">
+    <div class="container">
+      <div class="row">
+        <div class="col-8 mx-auto mt-3">
+          <p class="text-center text-white font-weight-bold" id="notice">
+            <%= flash[:notice] %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
+
