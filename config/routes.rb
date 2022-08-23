@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     patch 'customers/deactivate'
     delete 'carts/destroy_all', to: 'carts#destroy_all', as: 'carts_destroy_all'
     resources :carts, except: [:show,:new,:edit]
+    post 'orders/confirm', to: 'orders#confirm', as: 'orders_confirm'
+    get 'orders/complete', to: 'orders#complete', as: 'orders_complete'
     resources :orders, except: [:edit,:update,:destroy]
-    post 'orders/confirm'
-    get 'orders/complete'
     resources :destinations, except: [:show,:new]
   end
 
