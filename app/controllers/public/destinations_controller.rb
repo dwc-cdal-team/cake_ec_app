@@ -1,4 +1,7 @@
 class Public::DestinationsController < ApplicationController
+  
+  before_action :ensure_customer
+  
   def index
     @destination_new = Destination.new
     @destinations = Destination.where(customer_id: current_customer.id)
@@ -39,5 +42,9 @@ class Public::DestinationsController < ApplicationController
 
   def destination_params
     params.require(:destination).permit(:postal_code, :address, :name)
+  end
+  
+  def ensure_customer
+    redirect_to new_customer_session_path unless customer_signed_in?
   end
 end

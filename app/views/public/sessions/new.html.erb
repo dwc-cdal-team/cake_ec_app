@@ -3,7 +3,7 @@
     <div class=”col-md-8”>
       <h2>ログイン</h2>
       <strong>会員の方はこちらからログイン</strong>
-
+      
       <%= form_with model: @customer,local: true, url: session_path(resource_name) do |f| %>
       <div class="field">
         <%= f.label :email, "メールアドレス" %>

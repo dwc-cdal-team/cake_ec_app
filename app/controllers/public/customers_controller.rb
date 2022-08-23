@@ -1,4 +1,7 @@
 class Public::CustomersController < ApplicationController
+  
+  before_action :ensure_customer
+  
   def show
     @customer = Customer.find(current_customer.id)
   end
@@ -32,5 +35,9 @@ class Public::CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :email, :is_deleted)
+  end
+  
+  def ensure_customer
+    redirect_to new_customer_session_path unless customer_signed_in?
   end
 end
