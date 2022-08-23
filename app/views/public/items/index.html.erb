@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'layouts/sidebar' %>
+      <%= render 'layouts/sidebar',genres: @genres %>
     </div>
     <div class="col-md-8 offset-1">
-      <%#= render 'index', items: @items %>
+      <%= render 'index', items: @items, all_items: @all_items %>
     </div>
   </div>
 </div>
