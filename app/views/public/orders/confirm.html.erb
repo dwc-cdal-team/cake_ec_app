@@ -29,14 +29,12 @@
             <tr>
               <td class="font-weight-bold">支払方法</td>
               <td class="pl-3">
-                <%= @order.payment_method %>
-                <!--ja.yml設定終わってから-->
-                <%#<%= @order.payment_methods_i18n %>
+                <%= @order.payment_method_i18n %>
               </td>
             </tr>
             <tr>
               <td class="font-weight-bold">お届け先</td>
-              <td>〒<%= @order.postal_code %></td>
+              <td>〒<%= @order.postal_code.to_s.insert(3, "-") %></td>
               <td><%= @order.address %></td>
               <td><%= @order.name %></td>
             </tr>

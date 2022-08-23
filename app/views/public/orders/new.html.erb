@@ -18,7 +18,7 @@
           <p class="font-weight-bold">お届け先</p>
           <div class="form-group">
             <div class="pl-3">
-              <%= f.radio_button :address_number, 1 %>
+              <%= f.radio_button :address_number, 1, {:checked => true} %>
               <%= f.label :address_number_1, "ご自身の住所" %>
             </div>
             <div class="pl-5">〒<%= @customer_address %></div>
