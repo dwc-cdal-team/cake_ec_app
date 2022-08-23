@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container py-5">
   <div class="row">
-    <div class="col-3">
+    <div class="col-md-3">
       <%= render 'layouts/sidebar', genres: @genres %>
     </div>
 
-    <div class="col-lg-8">
-      <div class="row-8">
+    <div class="col-md-8 offset-md-1">
+      <div class="row-md-8">
         <div style="background: url(/assets/top_mv.jpg); background-position: top left; background-size: cover;">
-          <P class="text-success font-weight-bold">
+          <P class="text-white font-weight-bold p-5">
             <br>
             ようこそ、ながのCAKEへ！<br>
             このサイトは、ケーキ販売のECサイトになります。<br>
@@ -18,25 +18,18 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row-md-8">
         <h2>新着商品</h2>
       </div>
-      <div class="d-flex flex-wrap">
-        <% @items.each do |item| %>
-          <div class="col-3 p-1 flex-fill">
-            <%= link_to item_path(item) do %>
-               <%= image_tag item.get_image(160, 120) %>
-               <p><%= item.name %></p>
-               <p>￥<%= item.price_with_tax.to_s(:delimited) %></p>
-               <% unless item.is_stopped == false %>
-                 <p class="font-weight-bold text-danger">Sold Out</p>
-               <% end %>
-            <% end %>
-          </div>
-        <% end %>
+
+      <%= render 'public/items/index', items: @items %>
+
+      <div class="row-md-8">
+        <p class="text-right">
+          <%= link_to "全ての商品を見る>", items_path, method: :get %>
+        </p>
       </div>
-      <p class="text-right">
-        <%= link_to "全ての商品を見る>", items_path, method: :get %>
-      </p>
+
     </div>
   </div>
+</div>
