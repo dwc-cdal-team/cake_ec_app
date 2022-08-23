@@ -10,16 +10,13 @@
           <tr>
             <td class="pl-3">
               <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
-              <%= f.label :payment_method, "クレジットカード" %>
-              <!--ja.yml設定終わってから-->
-              <%#<%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
+              <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
             </td>
           </tr>
           <tr>
             <td class="pl-3">
               <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
-              <%= f.label :payment_method, "銀行振込" %>
-              <%#<%= f.label :payment_method, Order.payment_methods_i18n[:bank_transfer]%>
+              <%= f.label :payment_method, Order.payment_methods_i18n[:bank_transfer]%>
             </td>
           </tr>
           <tr>
@@ -45,7 +42,7 @@
           </tr>
           <tr>
             <td class="pl-5">
-              <%= f.select :destination_id, options_from_collection_for_select(@customer.destinations.all, :id, :address_display), { :include_blank => '住所を選択してください' } %>
+              <%= f.select :destination_id, options_from_collection_for_select(@customer.destinations.all, :id, :address_display), { :include_blank => '住所を選択してください' }, class: "form-control" %>
             </td>
           </tr>
           <tr>
@@ -55,16 +52,22 @@
             </td>
           </tr>
           <tr>
-            <td class="pl-5"><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
-            <td><%= f.text_field :postal_code %></td>
+            <td class="pl-5">
+              <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
+              <%= f.text_field :postal_code %>
+            </td>
           </tr>
           <tr>
-            <td class="pl-5"><%= f.label :address, "住所" %></td>
-            <td><%= f.text_field :address %></td>
+            <td class="pl-5">
+              <%= f.label :address, "住所" %>
+              <%= f.text_field :address %>
+            </td>
           </tr>
           <tr>
-            <td class="pl-5"><%= f.label :name, "宛名" %></td>
-            <td><%= f.text_field :name %></td>
+            <td class="pl-5">
+              <%= f.label :name, "宛名" %>
+              <%= f.text_field :name %>
+            </td>
           </tr>
           <tr>
             <td colspan= "2", class="text-center mt-5 mb-5">

@@ -20,11 +20,15 @@
             <% @carts.each do |cart| %>
               <tr id="cart_<%= cart.id %>">
                 <td class="border-right-0"><%= image_tag cart.item.get_image(80,60) %></td>
-                <td class="border-left-0"><%= cart.item.name %></td>
+                <td class="border-left-0">
+                  <%= link_to item_path(cart.item_id) do%>
+                    <%= cart.item.name %>
+                  <% end %>
+                </td>
                 <td>￥<%= cart.item.price_with_tax.to_s(:delimited) %></td>
                 <%= form_with model: cart, url: cart_path(cart.id), local: true, method: :patch do |f| %>
                   <%= f.hidden_field :item_id, :value => cart.item.id %>
-                  <td class="border-right-0"><%= f.select(:amount, *[1..15],{ selected: cart.amount.to_i }, :required => true, class: "form-group mx-sm-3") %>
+                  <td class="border-right-0"><%= f.select(:amount, *[1..cart.amount.to_i],{ selected: cart.amount.to_i }, :required => true, class: "form-group mx-sm-3") %>
                   <td class="border-left-0"><%= f.submit "変更", class: "btn btn-success ml-2" %>
                 <% end %>
                 <td>￥<%= cart.subtotal.to_s(:delimited) %></td>
