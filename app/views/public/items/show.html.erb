@@ -27,7 +27,7 @@
             <% elsif @item.is_stopped == false %>
               <%= form_with model: @cart, url: carts_path, method: :post do |f| %>
                 <%= f.hidden_field :item_id, :value => @item.id %>
-                <%= f.select(:amount, *[1..10],{ :include_blank => '個数選択' }, :required => true, class: "form-group mx-sm-3 mb-2") %>
+                <%= f.select(:amount, *[1..30],{ :include_blank => '個数選択' }, :required => true, class: "form-group mx-sm-3 mb-2") %>
                 <%= f.submit "カートに入れる", class: "btn btn-success mb-2" %>
               <% end %>
             <% else %>
