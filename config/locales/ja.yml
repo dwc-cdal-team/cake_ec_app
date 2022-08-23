@@ -13,21 +13,3 @@ ja:
         waiting: "制作待ち"
         making: "制作中"
         finish: "制作完了"
-  activerecord:
-    errors:
-      models:
-        destination:
-          attributes:
-            postal_code:
-              blank: "空白を埋めてください。"
-            address:
-              blank: "空白を埋めてください。"
-            name:
-              blank: "空白を埋めてください。"
-    models:
-      destination: "配送先"
-    attributes:
-      destination:
-        postal_code: "郵便番号"
-        address:  "住所"
-        name: "宛名"
