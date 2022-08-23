@@ -1,7 +1,6 @@
 <ul class="list-group list-group-flush">
   <li class="list-group-item font-weight-bold">ジャンル検索</li>
-  <li class="list-group-item">ケーキ</li>
-  <li class="list-group-item">焼き菓子</li>
-  <li class="list-group-item">プリン</li>
-  <li class="list-group-item">キャンディ</li>
+  <% genres.each do |f| %>
+  <li class="list-group-item"><%= link_to "f.name", genre_path(f) %></li>
+  <% end %>
 </ul>

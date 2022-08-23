@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     post 'orders/confirm'
     get 'orders/complete'
     resources :destinations, except: [:show,:new]
+    resources :genres, only: [:show]
   end
 
     # URL /customers/sign_in ...
