@@ -1,25 +1,20 @@
-<h3 class="font-weight-bold mb-3">商品一覧<small>（全<%= @all_items.count %>件）</small></h3>
-  <div class="card-deck mb-5">
-    <div class="row">
-      <% items.each do |item| %>
-        <div class="col-lg-3 mb-3">
-          <div class="card h-100 mt-2 mb-2 shadow-sm">
-            <%= link_to item_path(item) do%>
-              <%= image_tag item.get_image(240,180), class: "card-img-top" %>
-              <div class="card-body">
-                <h5 class="card-title mb-2"><%= item.name %></h5>
-                <p class="card-text font-weight-bold mb-2">￥<%= item.price_with_tax.to_s(:delimited) %></p>
-                <% unless item.is_stopped == false %>
-                  <p class="card-text font-weight-bold text-danger">Sold Out</p>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+<div class="row-md-8">
+  <div class="d-flex flex-wrap">
+    <% items.each do |item| %>
+      <div class="w-25 p-1">
+        <%= link_to item_path(item) do %>
+          <%= image_tag item.get_image(160,120), class: "w-100" %>
+          <p><%= item.name %></p>
+          <p>￥<%= item.price_with_tax.to_s(:delimited) %></p>
+          <% unless item.is_stopped == false %>
+            <p class="card-text font-weight-bold text-danger">Sold Out</p>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-<%= paginate items %>
+</div>
+
 
 
 
