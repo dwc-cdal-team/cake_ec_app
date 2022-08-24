@@ -1,14 +1,29 @@
-<div class="container">
+<div class="container py-5">
   <div class="row">
-    <div class="col-8">
+    <div class="col-md-10 mx-auto">
 
-      <h3>本当に退会しますか？</h3>
-      <p>退会すると、会員登録情報や</br>
-        これまでの購入履歴が閲覧できなくなります。</br>
-        退会する場合は、「退会する」をクリックしてください。
-      </p>
-      <%= link_to "退会しない", my_page_path, class: "btn btn-primary" %>
-      <%= link_to "退会する", customers_deactivate_path, method: :patch, class: "btn btn-danger", data: { confilm: "本当に退会しますか？" } %>
+      <div class="row-md-10 pb-3">
+        <div class="text-center">
+          <h2>本当に退会しますか？</h2>
+        </div>
+      </div>
+
+      <div class="row-md-10 pb-3">
+        <div class="text-center">
+          <p>
+            退会すると、会員登録情報や</br>
+            これまでの購入履歴が閲覧できなくなります。</br>
+            退会する場合は、「退会する」をクリックしてください。
+          </p>
+        </div>
+      </div>
+
+      <div class="row-md-10 pb-3">
+        <div class="text-center">
+          <%= link_to "退会しない", my_page_path, class: "btn btn-primary w-25" %>
+          <%= link_to "退会する", customers_deactivate_path, method: :patch, class: "btn btn-danger w-25", data: { confilm: "本当に退会しますか？" } %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

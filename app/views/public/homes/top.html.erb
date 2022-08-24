@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-md-8 offset-md-1">
-      <div class="row-md-8">
+      <div class="row-md-8 pb-3">
         <div style="background: url(/assets/top_mv.jpg); background-position: top left; background-size: cover;">
           <P class="text-white font-weight-bold p-5">
             <br>
@@ -18,13 +18,13 @@
         </div>
       </div>
 
-      <div class="row-md-8">
+      <div class="row-md-8 pb-3">
         <h2>新着商品</h2>
       </div>
 
       <%= render 'public/items/index', items: @items %>
 
-      <div class="row-md-8">
+      <div class="row-md-8 pb-3">
         <p class="text-right">
           <%= link_to "全ての商品を見る>", items_path, method: :get %>
         </p>
