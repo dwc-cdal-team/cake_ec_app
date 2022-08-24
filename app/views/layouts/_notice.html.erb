@@ -12,3 +12,16 @@
   </div>
 <% end %>
 
+<% if flash[:alert] %>
+  <div class="w-auto bg-danger">
+    <div class="container">
+      <div class="row">
+        <div class="col-8 mx-auto mt-3">
+          <p class="text-center text-white font-weight-bold" id="notice">
+            <%= flash[:alert] %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
