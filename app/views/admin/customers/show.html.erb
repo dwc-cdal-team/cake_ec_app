@@ -73,10 +73,12 @@
         </tr>
         <tr>
           <th>
-
           </th>
           <th>
             <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success", method: :get %>
+          </th>
+          <th>
+            <%= link_to "注文履歴一覧を見る", admin_customers_order_history_path(@customer.id), class: "btn btn-primary", method: :get %>
           </th>
         </tr>
       </table>

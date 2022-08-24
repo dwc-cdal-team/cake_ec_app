@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     resources :items, except: [:destroy]
     resources :genres, except: [:new,:show,:destroy]
+    get 'customers/:id/order_history', to: 'customers#order_history', as: 'customers_order_history'
     resources :customers, except: [:new,:create,:destroy]
     resources :orders, only: [:show,:update]
     resources :order_items, only: [:update]
