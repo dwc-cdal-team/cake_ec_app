@@ -1,12 +1,18 @@
-<div class='container'>
+<div class='container py-5'>
   <div class='row'>
-    <div class='col-md-10'>
-      <h3><span class="bg-light">ショッピングカート</span></h3>
+    <div class='col-md-10 mx-auto'>
+
+      <div class="row-md-10 pb-3">
+        <h3>ショッピングカート</h3>
+      </div>
+
+      <div class="row-md-10 pb-3">
       <% if current_customer.carts.present? %>
-        <div class="text-right mt-2">
+        <div class="text-right mb-3">
           <%= button_to "カートを空にする", carts_destroy_all_path, method: :delete, class: "btn btn-danger btn-sm" %>
         </div>
-        <table class='table table-hover table-bordered mt-3'>
+
+        <table class='table table-bordered mb-3'>
           <thead class="thead-light">
             <tr>
               <th colspan="2">商品名</th>
@@ -17,44 +23,50 @@
             </tr>
           </thead>
           <tbody>
-            <% @carts.each do |cart| %>
-              <tr id="cart_<%= cart.id %>">
-                <td class="border-right-0"><%= image_tag cart.item.get_image(80,60) %></td>
-                <td class="border-left-0">
-                  <%= link_to item_path(cart.item_id) do%>
-                    <%= cart.item.name %>
-                  <% end %>
-                </td>
-                <td>￥<%= cart.item.price_with_tax.to_s(:delimited) %></td>
-                <%= form_with model: cart, url: cart_path(cart.id), local: true, method: :patch do |f| %>
-                  <%= f.hidden_field :item_id, :value => cart.item.id %>
-                  <td class="border-right-0"><%= f.select(:amount, *[1..cart.amount.to_i],{ selected: cart.amount.to_i }, :required => true, class: "form-group mx-sm-3") %>
-                  <td class="border-left-0"><%= f.submit "変更", class: "btn btn-success ml-2" %>
+          <% @carts.each do |cart| %>
+            <tr id="cart_<%= cart.id %>">
+              <td class="border-right-0"><%= image_tag cart.item.get_image(80,60) %></td>
+              <td class="border-left-0">
+                <%= link_to item_path(cart.item_id) do%>
+                  <%= cart.item.name %>
                 <% end %>
-                <td>￥<%= cart.subtotal.to_s(:delimited) %></td>
-                <td><%= button_to "削除する", cart_path(cart.id), method: :delete, data: { confirm: "商品を削除しますか？" }, class: "btn btn-danger" %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <table class='table table-borderless mt-3'>
-          <tbody>
-            <tr>
-              <td colspan="4"><%= button_to "買い物を続ける", items_path, method: :get, class: "btn btn-primary" %></td>
-              <td class="table-light border border-secondary text-left">合計金額</td>
-              <td class="border border-secondary text-left">￥<%= @total.to_s(:delimited) %></td>
+              </td>
+              <td>￥<%= cart.item.price_with_tax.to_s(:delimited) %></td>
+              <%= form_with model: cart, url: cart_path(cart.id), local: true, method: :patch do |f| %>
+                <%= f.hidden_field :item_id, :value => cart.item.id %>
+                <td class="border-right-0"><%= f.select(:amount, *[1..cart.amount.to_i],{ selected: cart.amount.to_i }, :required => true, class: "form-select") %>
+                <td class="border-left-0"><%= f.submit "変更", class: "btn btn-success" %>
+              <% end %>
+              <td>￥<%= cart.subtotal.to_s(:delimited) %></td>
+              <td><%= button_to "削除する", cart_path(cart.id), method: :delete, data: { confirm: "商品を削除しますか？" }, class: "btn btn-danger" %></td>
             </tr>
+          <% end %>
           </tbody>
         </table>
-         <div class="text-center mt-5 mb-5">
-          <%= button_to "情報入力に進む", new_order_path, method: :get, class: "btn btn-info btn-lg" %>
+
+        <div class="d-flex justify-content-between">
+          <div class="w-25">
+          <%= button_to "買い物を続ける", items_path, method: :get, class: "btn btn-primary" %>
+          </div>
+
+          <table class='table table-bordered w-25'>
+            <tr>
+              <td class="bg-light">合計金額</td>
+              <td>￥<%= @total.to_s(:delimited) %></td>
+            </tr>
+          </table>
+        </div>
+
+         <div class="text-center">
+          <%= button_to "情報入力に進む", new_order_path, method: :get, class: "btn btn-success" %>
         </div>
       <% else %>
-        <h3>お客様のカートに商品はありません</h3>
         <div class="text-center">
-          <%= button_to "買い物を続ける", items_path, method: :get, class: "btn btn-primary mt-5 mb-5" %>
+          <p>お客様のカートに商品はありません</p>
+          <%= button_to "買い物を続ける", items_path, method: :get, class: "btn btn-primary" %>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -5,13 +5,13 @@
     </div>
 
     <div class="col-md-8 offset-md-1">
-      <div class="row-md-8">
+      <div class="row-md-8 pb-3">
         <h2>商品一覧（全<%= @all_items.count %>件）</h2>
       </div>
 
       <%= render 'index', items: @items %>
 
-      <div class="row-md-8">
+      <div class="row-md-8 pb-3">
         <%= paginate @items %>
       </div>
     </div>
