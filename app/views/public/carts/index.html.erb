@@ -3,7 +3,7 @@
     <div class='col-md-10 mx-auto'>
 
       <div class="row-md-10 pb-3">
-        <h3>ショッピングカート</h3>
+        <h2>ショッピングカート</h2>
       </div>
 
       <div class="row-md-10 pb-3">
@@ -27,7 +27,7 @@
             <tr id="cart_<%= cart.id %>">
               <td class="border-right-0"><%= image_tag cart.item.get_image(80,60) %></td>
               <td class="border-left-0">
-                <%= link_to item_path(cart.item_id) do%>
+                <%= link_to item_path(cart.item_id) do %>
                   <%= cart.item.name %>
                 <% end %>
               </td>
