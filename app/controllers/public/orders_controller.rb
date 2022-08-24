@@ -20,7 +20,11 @@ class Public::OrdersController < ApplicationController
       @order.address = @destination.address
       @order.name = @destination.name
     elsif params[:order][:address_number] == "3"
-        @order = Order.new(order_params)
+      @order = Order.new(order_params)
+      if @order.name == "" || @order.address == "" || @order.postal_code.length != 7
+        flash[:alert] = "問題が発生しました。再度入力してください。"
+        redirect_to new_order_path
+      end
     else
       render :new
     end
