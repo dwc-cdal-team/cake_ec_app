@@ -18,14 +18,27 @@ ja:
         finish: "制作完了"
   activerecord:
     models:
+      destination: 配送先
+      order: 注文
       item: 商品
+      genre: ジャンル
     attributes:
+      destination:
+        postal_code: 郵便番号
+        address: 住所
+        name: 宛名
+      order:
+        postal_code: 配送先郵便番号
+        address: 配送先住所
+        name: 配送先宛名
       item:
         genre: ジャンル
         name: 商品名
         introduction: 説明文
         price_without_tax: 税抜価格
         image: 画像
+      genre:
+        name: ジャンル名
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
