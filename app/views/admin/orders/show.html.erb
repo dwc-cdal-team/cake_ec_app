@@ -1,13 +1,13 @@
 <div class="container py-5">
   <div class="row">
-    <div class="col-md-10 mx-auto">
+    <div class="col-md-12 mx-auto">
 
-      <div class="row-md-10 pb-3">
+      <div class="row-md-12 pb-3">
         <h2>注文履歴詳細</h2>
       </div>
 
-      <div class="row-md-10 pb-3">
-        <table class="table">
+      <div class="row-md-12 pb-3">
+        <table class="table table-borderless">
           <tr>
             <th>
               購入者
@@ -48,7 +48,7 @@
               <%= form_with model: @order, url: admin_order_path(@order.id), local: true, method: :patch do |form| %>
                 <div class="d-flex">
                   <%= form.select :order_status, options_for_select(Order.order_statuses.keys.map{|k|[I18n.t("enums.order.order_status.#{k}"), k]}, @order.order_status) %>
-                  <%= form.submit "更新", class: "btn btn-success" %>
+                  <%= form.submit "更新", class: "btn btn-success ml-3" %>
                 </div>
               <% end %>
             </th>
@@ -97,7 +97,7 @@
                   <%= form_with model: order_item, url: admin_order_item_path(order_item.id), local: true, method: :patch do |form| %>
                     <div class="d-flex">
                       <%= form.select :making_status, options_for_select(OrderItem.making_statuses.keys.map{|k|[I18n.t("enums.order_item.making_status.#{k}"), k]}, order_item.making_status) %>
-                      <%= form.submit "更新", class: "btn btn-success" %>
+                      <%= form.submit "更新", class: "btn btn-success ml-3" %>
                     </div>
                   <% end %>
                 </th>
