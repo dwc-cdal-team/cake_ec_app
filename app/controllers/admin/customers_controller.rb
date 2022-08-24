@@ -28,6 +28,12 @@ class Admin::CustomersController < ApplicationController
     end
   end
 
+  def order_history
+    @customer = Customer.find(params[:id])
+    @customer_name = @customer.last_name + " " + @customer.first_name
+    @orders = @customer.orders.order(id: "DESC").page(params[:page]).per(10)
+  end
+
   private
 
   def customer_params
