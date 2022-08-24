@@ -1,14 +1,17 @@
-<div class="container">
+<div class="container py-5">
   <div class="row">
-    <div class="col-md-8 mx-auto">
-      <h2>商品詳細</h2>
+    <div class="col-md-10 mx-auto">
 
-      <div class="row">
-        <div class="col-md-4">
-          <%= image_tag @item.get_image(200, 150) %>
+      <div class="row-md-10 pb-3">
+        <h2>商品詳細</h2>
+      </div>
+
+      <div class="row pb-3">
+        <div class="col-md-3">
+          <%= image_tag @item.get_image(200, 150), class: "w-100" %>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-7">
           <table class="table table-borderless">
             <tr>
               <th>商品名</th>
@@ -40,7 +43,7 @@
           </table>
 
           <div class="text-center">
-            <%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-sm btn-success" %>
+            <%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success w-50" %>
           </div>
         </div>
       </div>

@@ -1,25 +1,42 @@
-<div class="container">
-  <div class="row">
-    <div class=”col-md-8”>
-      <h2>ログイン</h2>
-      <strong>会員の方はこちらからログイン</strong>
+<div class="container py-5">
+  <div class="row pb-3">
+    <h2>ログイン</h2>
+  </div>
 
+  <div class="row pb-3">
+    <div class="col-md-10 mx-auto">
+      <h3>会員の方はこちらからログイン</h3>
+    </div>
+  </div>
+
+  <div class="row pb-3">
+    <div class="col-md-10 mx-auto">
       <%= form_with model: @customer,local: true, url: session_path(resource_name) do |f| %>
-      <div class="field">
-        <%= f.label :email, "メールアドレス" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="field d-flex mb-3">
+        <%= f.label :email, "メールアドレス", class: "w-25" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-50" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password, "パスワード" %>
-        <%= f.password_field :password, autocomplete: "current-password" %>
+      <div class="field d-flex mb-3">
+        <%= f.label :password, "パスワード", class: "w-25" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control w-50" %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "ログイン",class: "btn btn-primary" %>
+      <div class="actions text-center">
+        <%= f.submit "ログイン",class: "btn btn-primary w-50" %>
       </div>
       <% end %>
-      <strong>会員登録がお済みでない方</strong></br>
+    </div>
+  </div>
+
+  <div class="row pb-3">
+    <div class="col-md-10 mx-auto">
+      <h3>会員登録がお済みでない方</h3>
+    </div>
+  </div>
+
+  <div class="row pb-3">
+    <div class="col-md-10 mx-auto">
       <%= render "public/shared/links" %>
     </div>
   </div>
