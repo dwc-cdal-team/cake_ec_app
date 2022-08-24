@@ -25,7 +25,7 @@
           <%= f.label :genre_id, "ジャンル" %><br>
           <%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "選択して下さい", class: "form-select" %>
         </div>
-
+        
         <div class="field">
           <%= f.label :price_without_tax, "税抜価格" %><br>
           <%= f.number_field :price_without_tax %>円
