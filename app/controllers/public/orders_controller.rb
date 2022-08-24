@@ -20,7 +20,7 @@ class Public::OrdersController < ApplicationController
       @order.address = @destination.address
       @order.name = @destination.name
     elsif params[:order][:address_number] == "3"
-      @order = Order.new(order_params)
+        @order = Order.new(order_params)
     else
       render :new
     end
