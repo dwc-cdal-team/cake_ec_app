@@ -5,6 +5,7 @@
 
   <div class="row pb-3">
     <div class="col-md-10 mx-auto">
+
       <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
         <div class="field d-flex mb-3">
           <%= f.label :email, "メールアドレス", class: "w-25" %>
