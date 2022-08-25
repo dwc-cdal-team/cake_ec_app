@@ -6,7 +6,7 @@
 
     <div class="col-md-8 offset-md-1">
       <div class="row-md-8 pb-3">
-        <h2>商品一覧（全<%= @items.count %>件）</h2>
+        <h2><%= @genre.name %>一覧（全<%= @items.count %>件）</h2>
       </div>
 
       <%= render 'public/items/index', items: @items %>
