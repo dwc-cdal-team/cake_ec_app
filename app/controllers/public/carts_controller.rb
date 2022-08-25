@@ -1,6 +1,6 @@
 class Public::CartsController < ApplicationController
 
-  before_action :ensure_customer
+  before_action :authenticate_customer!
 
   def index
     @carts = current_customer.carts.all
@@ -50,9 +50,4 @@ class Public::CartsController < ApplicationController
   def cart_params
     params.require(:cart).permit(:item_id, :amount)
   end
-
-  def ensure_customer
-    redirect_to new_customer_session_path unless customer_signed_in?
-  end
-
 end
