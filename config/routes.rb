@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get 'orders/complete', to: 'orders#complete', as: 'orders_complete'
     resources :orders, except: [:edit,:update,:destroy]
     resources :destinations, except: [:show,:new]
+    resources :genres, only: [:show]
   end
 
     # URL /customers/sign_in ...
