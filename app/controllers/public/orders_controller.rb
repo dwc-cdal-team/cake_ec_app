@@ -21,6 +21,10 @@ class Public::OrdersController < ApplicationController
       @order.name = @destination.name
     elsif params[:order][:address_number] == "3"
       @order = Order.new(order_params)
+      if @order.name == "" || @order.address == "" || @order.postal_code.length != 7
+        flash[:alert] = "新しいお届け先を指定する場合は「郵便番号は7ケタ、住所、宛名」を必ず入力してください。"
+        redirect_to new_order_path
+      end
     else
       render :new
     end
