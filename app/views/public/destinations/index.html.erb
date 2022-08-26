@@ -1,0 +1,35 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+
+      <div class="row-md-10 pb-3">
+        <h2>配送先登録/一覧</h2>
+      </div>
+
+      <div class="row-md-10 pb-3">
+        <%= render 'layouts/errors', obj: @destination_new %>
+        <%= form_with model: @destination_new, url: destinations_path, local: true, method: :post  do |f| %>
+        <table class="table table-borderless">
+          <tr>
+            <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+            <td><%= f.text_field :postal_code, autofocus: true, class: "w-100" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :address, "住所" %></td>
+            <td><%= f.text_field :address, autofocus: true, class: "w-100" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :name, "宛名" %></td>
+            <td><%= f.text_field :name, autofocus: true, class: "w-100" %></td>
+            <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+          </tr>
+        </table>
+        <% end %>
+      </div>
+
+      <div class="row-md-10 pb-3">
+        <%= render "index", destinations: @destinations %>
+      </div>
+    </div>
+  </div>
+</div>

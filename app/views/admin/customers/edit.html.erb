@@ -1,0 +1,95 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+
+      <div class="row-md-10 pb-3">
+        <h2><%= @customer_name %>さんの会員情報編集</h2>
+      </div>
+
+      <div class="row-md-10 pb-3">
+
+        <%= render 'layouts/errors', obj: @customer %>
+        <table class="table">
+          <tr>
+            <th>
+              会員ID
+            </th>
+            <th>
+              <%= @customer.id %>
+            </th>
+          </tr>
+          <%= form_with model: @customer, url: admin_customer_path(@customer.id), local: true, method: :patch do |form| %>
+          <tr>
+            <th>
+              氏名
+            </th>
+            <th class="d-flex">
+              <%= form.text_field :last_name, class: "form-control w-25 mr-3" %>
+              <%= form.text_field :first_name, class: "form-control w-25 mr-3" %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              フリガナ
+            </th>
+            <th class="d-flex">
+              <%= form.text_field :last_name_kana, class: "form-control w-25 mr-3" %>
+              <%= form.text_field :first_name_kana, class: "form-control w-25 mr-3" %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              郵便番号
+            </th>
+            <th>
+              <%= form.text_field :postal_code, class: "form-control w-25 mr-3" %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              住所
+            </th>
+            <th>
+              <%= form.text_field :address, class: "form-control w-75 mr-3" %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              電話番号
+            </th>
+            <th>
+              <%= form.text_field :telephone_number, class: "form-control w-25 mr-3" %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              メールアドレス
+            </th>
+            <th>
+              <%= form.text_field :email, class: "form-control w-25 mr-3" %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              会員ステータス
+            </th>
+            <th>
+              <%= form.radio_button :is_deleted, :false %>有効
+              <%= form.radio_button :is_deleted, :true %>退会
+            </th>
+          </tr>
+          <tr>
+            <th>
+
+            </th>
+            <th>
+              <%= form.submit "変更を保存", class: "btn btn-success w-25" %>
+            </th>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
